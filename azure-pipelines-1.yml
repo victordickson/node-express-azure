@@ -4,15 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- main
 
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'bbcefb40-bf35-44b5-b135-62dd7d667c32'
+  azureSubscription: 'vic-personal-sc'
 
   # Web app name
-  webAppName: 'node-expess-demo-001'
+  webAppName: 'node-azure-site'
 
   # Environment name
   environmentName: 'node-expess-demo-001'
