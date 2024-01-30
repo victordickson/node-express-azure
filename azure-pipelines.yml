@@ -72,7 +72,7 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
-              appName: $(webAppName)/dev
+              appName: $(webAppName)
               runtimeStack: 'NODE|20.00'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
