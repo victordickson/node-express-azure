@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'vic-personal-sc'
 
   # Web app name
-  webAppName: 'node-azure-site-dev'
+  webAppName: 'node-azure-site'
 
   # Environment name
   environmentName: 'node-expess-demo-001'
@@ -54,12 +54,12 @@ stages:
       artifact: drop
 
 - stage: Deploy
-  displayName: Deploy stage
+  displayName: Deploy to dev stage
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: Deploy
-    displayName: Deploy
+  - deployment: DeployToDev
+    displayName: 'Deploy to dev'
     environment: $(environmentName)
     pool:
       vmImage: $(vmImageName)
@@ -72,7 +72,7 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
-              appName: $(webAppName)
+              appName: $(webAppName)/dev
               runtimeStack: 'NODE|20.00'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
