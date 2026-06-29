@@ -110,7 +110,7 @@
                 "phpVersion": "",
                 "pythonVersion": "",
                 "nodeVersion": "",
-                "linuxFxVersion": "NODE|20.0",
+                "linuxFxVersion": "NODE|24.0",
                 "windowsFxVersion": null,
                 "requestTracingEnabled": false,
                 "remoteDebuggingEnabled": false,
