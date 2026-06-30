@@ -19,6 +19,15 @@ app.use('/', index);
 app.use('/who', who);
 app.use('/contact', contact);
 
-app.listen(config.port, () => {
-  console.log(`Demo app is running on ${config.port}!`);
-});
+// Only start the server if this file is run directly
+if (require.main === module) {
+  app.listen(config.port, () => {
+    console.log(`Demo app is running on ${config.port}!`);
+  });
+} else {
+  // If required by tests, start server for testing
+  const server = app.listen(config.port, () => {
+    console.log(`Demo app is running on ${config.port}!`);
+  });
+  module.exports = server;
+}
