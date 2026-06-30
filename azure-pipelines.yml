@@ -3,6 +3,11 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+# Node.js Express Web App to Linux on Azure
+# Build a Node.js Express app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
 trigger:
 - azure-pipelines
 
@@ -30,10 +35,15 @@ stages:
       vmImage: $(vmImageName)
 
     steps:
-    - task: UseNode@1
+    - task: NodeTool@0
       inputs:
-        versionSpec: '24.x'
+        versionSpec: '18.x'
       displayName: 'Install Node.js'
+
+    - script: |
+        node --version
+        npm --version
+      displayName: 'Display Node and npm versions'
 
     - script: |
         npm install
@@ -73,6 +83,6 @@ stages:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
-              runtimeStack: 'NODE|24LTS'
+              runtimeStack: 'NODE|18-lts'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'npm run start'
