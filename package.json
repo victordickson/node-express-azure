@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "npm install",
-    "test": "mocha --exit 'test/**/*.js'",
+    "test": "mocha --exit",
     "start": "node app.js"
   },
   "author": "",
@@ -17,6 +17,6 @@
   "devDependencies": {
     "chai": "^4.3.10",
     "chai-http": "^4.4.0",
-    "mocha": "^10.2.0"
+    "mocha": "^9.2.2"
   }
 }
