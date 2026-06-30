@@ -24,10 +24,6 @@ if (require.main === module) {
   app.listen(config.port, () => {
     console.log(`Demo app is running on ${config.port}!`);
   });
-} else {
-  // If required by tests, start server for testing
-  const server = app.listen(config.port, () => {
-    console.log(`Demo app is running on ${config.port}!`);
-  });
-  module.exports = server;
 }
+
+module.exports = app;
